@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
 import 'package:she_drive_pro/commons/widgets/tutor_detail_form.dart';
-import 'package:she_drive_pro/commons/widgets/vehicle_detail_form.dart';
 
-class TutorDetailsScreen extends StatefulWidget {
-  const TutorDetailsScreen({super.key});
+class VehicleDetailsScreen extends StatefulWidget {
+  const VehicleDetailsScreen({super.key});
 
   @override
-  State<TutorDetailsScreen> createState() => _TutorDetailsScreenState();
+  State<VehicleDetailsScreen> createState() => _VehicleDetailsScreenState();
 }
 
-class _TutorDetailsScreenState extends State<TutorDetailsScreen> {
+class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final bool isSmallScreen = MediaQuery.of(context).size.width < 600;
@@ -26,7 +25,7 @@ class _TutorDetailsScreenState extends State<TutorDetailsScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Logo(),
-                          VehicleDetailForm(),
+                          TutorDetailForm(),
                         ],
                       ),
                   )
@@ -37,7 +36,7 @@ class _TutorDetailsScreenState extends State<TutorDetailsScreen> {
                         children: [
                           Expanded(child: Logo()),
                           Expanded(
-                            child: SingleChildScrollView(child: Center(child: VehicleDetailForm())),
+                            child: SingleChildScrollView(child: Center(child: TutorDetailForm())),
                           ),
                         ],
                       ),
