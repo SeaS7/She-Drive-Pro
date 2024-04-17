@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
 import 'package:she_drive_pro/commons/widgets/tutor_detail_form.dart';
+import 'package:she_drive_pro/commons/widgets/vehicle_detail_form.dart';
 
 class VehicleDetailsScreen extends StatefulWidget {
   const VehicleDetailsScreen({super.key});
@@ -25,7 +26,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Logo(),
-                          TutorDetailForm(),
+                          VehicleDetailForm(),
                         ],
                       ),
                   )
@@ -36,7 +37,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                         children: [
                           Expanded(child: Logo()),
                           Expanded(
-                            child: SingleChildScrollView(child: Center(child: TutorDetailForm())),
+                            child: SingleChildScrollView(child: Center(child: VehicleDetailForm())),
                           ),
                         ],
                       ),

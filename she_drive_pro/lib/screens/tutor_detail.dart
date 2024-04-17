@@ -26,7 +26,7 @@ class _TutorDetailsScreenState extends State<TutorDetailsScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Logo(),
-                          VehicleDetailForm(),
+                          TutorDetailForm(),
                         ],
                       ),
                   )
@@ -37,7 +37,7 @@ class _TutorDetailsScreenState extends State<TutorDetailsScreen> {
                         children: [
                           Expanded(child: Logo()),
                           Expanded(
-                            child: SingleChildScrollView(child: Center(child: VehicleDetailForm())),
+                            child: SingleChildScrollView(child: Center(child: TutorDetailForm())),
                           ),
                         ],
                       ),

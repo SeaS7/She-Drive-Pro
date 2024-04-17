@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:she_drive_pro/commons/widgets/sign_up_form.dart';
 import 'package:she_drive_pro/screens/sign_up.dart';
+import 'package:she_drive_pro/screens/uploadDocumentScreens/Id_image_upload.dart';
 
 void main() {
   runApp(const MyApp());

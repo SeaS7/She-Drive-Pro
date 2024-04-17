@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:she_drive_pro/screens/tutor_detail.dart';
 import 'package:intl/intl.dart';
+import 'package:she_drive_pro/screens/uploadDocumentScreens/Id_image_upload.dart';
 
 class VehicleDetailForm extends StatefulWidget {
   const VehicleDetailForm({Key? key}) : super(key: key);
@@ -301,7 +302,7 @@ class _VehicleDetailFormState extends State<VehicleDetailForm> {
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const TutorDetailsScreen()));
+                      builder: (context) => const IDimageUploadScreen()));
                 },
               ),
             )
