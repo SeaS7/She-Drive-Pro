@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple,primary: Color(0xff9F2067),secondary: Colors.white),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const SignUpScreen(),
     );
   }
 }
