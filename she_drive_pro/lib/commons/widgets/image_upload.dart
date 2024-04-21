@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
-import 'package:she_drive_pro/screens/tutor_detail.dart';
-import 'package:she_drive_pro/screens/uploadDocumentScreens/license_image_upload.dart';
-import 'package:she_drive_pro/screens/uploadDocumentScreens/selfie_upload.dart';
+import 'package:she_drive_pro/screens/auth_screens/tutor_detail.dart';
+import 'package:she_drive_pro/screens/upload_document_screens/license_image_upload.dart';
+import 'package:she_drive_pro/screens/upload_document_screens/selfie_upload.dart';
 
 class ImageUploader extends StatefulWidget {
   final List<XFile?> images;

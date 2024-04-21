@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:she_drive_pro/commons/widgets/login_form.dart';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
 import 'package:she_drive_pro/commons/widgets/sign_up_form.dart';
 
@@ -25,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Logo(),
-                          SignUpFormContent(),
+                          LoginForm(),
                         ],
                       )
                     : Container(
@@ -35,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Expanded(child: Logo()),
                             Expanded(
-                              child: SingleChildScrollView(child: Center(child: SignUpFormContent())),
+                              child: SingleChildScrollView(child: Center(child: LoginForm())),
                             ),
                           ],
                         ),

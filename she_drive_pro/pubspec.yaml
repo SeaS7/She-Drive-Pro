@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.19.0
   image_picker: ^1.0.8
   flutter_native_splash: ^2.4.0
+  pinput: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -34,6 +35,8 @@ flutter:
     - assets/images/app_logo.png
     - assets/images/camera.png
     - assets/images/flutter_ui_dev_logo_dark.png
+    - assets/images/google_logo.png
+    - assets/images/varification_img.png
 
 
 flutter_native_splash:

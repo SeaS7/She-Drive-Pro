@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:she_drive_pro/screens/tutor_detail.dart';
 import 'package:intl/intl.dart';
-import 'package:she_drive_pro/screens/uploadDocumentScreens/Id_image_upload.dart';
+import 'package:she_drive_pro/screens/upload_document_screens/Id_image_upload.dart';
 
 class VehicleDetailForm extends StatefulWidget {
   const VehicleDetailForm({Key? key}) : super(key: key);
@@ -41,36 +40,37 @@ class _VehicleDetailFormState extends State<VehicleDetailForm> {
             // Text field for vehicle make
             TextFormField(
               validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter the vehicle make';
-              }
-              return null;
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the vehicle make';
+                }
+                return null;
               },
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-              errorStyle: TextStyle(color: Colors.black), // Add this line
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              labelStyle: TextStyle(color: Colors.white),
-              prefixIcon: Icon(
-                Icons.directions_car,
-                color: Colors.white,
-              ),
-              labelText: 'Vehicle Make',
+                hintText: 'Enter vehicle make',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(
+                  Icons.directions_car,
+                  color: Colors.white,
+                ),
+                labelText: 'Vehicle Make',
               ),
             ),
             _gap(),
@@ -85,6 +85,7 @@ class _VehicleDetailFormState extends State<VehicleDetailForm> {
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
+                hintText: 'Enter vehicle model and color',
                 errorStyle: TextStyle(color: Colors.black), // Add this line
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.red), // Add this line
@@ -113,133 +114,136 @@ class _VehicleDetailFormState extends State<VehicleDetailForm> {
             // Text field for licence plate number
             TextFormField(
               validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your Vehicle licence plate number';
-              }
-              return null;
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your Vehicle licence plate number';
+                }
+                return null;
               },
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-              errorStyle: TextStyle(color: Colors.black), // Add this line
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              labelStyle: TextStyle(color: Colors.white),
-              prefixIcon: Icon(
-                Icons.drive_eta,
-                color: Colors.white,
-              ),
-              labelText: 'Licence Plate Number',
+                hintText: 'Enter licence plate number',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(
+                  Icons.drive_eta,
+                  color: Colors.white,
+                ),
+                labelText: 'Licence Plate Number',
               ),
             ),
             _gap(),
             // Text field for year of registration
             TextFormField(
               controller: TextEditingController(
-              text: _selectedDate != null
-                ? DateFormat('yyyy').format(_selectedDate)
-                : '',
+                text: _selectedDate != null
+                    ? DateFormat('yyyy').format(_selectedDate)
+                    : '',
               ),
               validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter the year of registration';
-              }
-              return null;
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the year of registration';
+                }
+                return null;
               },
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-              errorStyle: TextStyle(color: Colors.black), // Add this line
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              labelStyle: TextStyle(color: Colors.white),
-              prefixIcon: Icon(
-                Icons.calendar_today,
-                color: Colors.white,
-              ),
-              labelText: 'Year of Registration',
+                hintText: 'Enter year of registration',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(
+                  Icons.calendar_today,
+                  color: Colors.white,
+                ),
+                labelText: 'Year of Registration',
               ),
               onTap: () async {
-              FocusScope.of(context).requestFocus(FocusNode());
+                FocusScope.of(context).requestFocus(FocusNode());
                 DateTime? selectedDate = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(1900),
-                lastDate: DateTime.now(),
-                initialDatePickerMode: DatePickerMode.year,
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1900),
+                  lastDate: DateTime.now(),
+                  initialDatePickerMode: DatePickerMode.year,
                 );
-              if (selectedDate != null) {
-                setState(() {
-                _selectedDate = selectedDate;
-                });
-              }
+                if (selectedDate != null) {
+                  setState(() {
+                    _selectedDate = selectedDate;
+                  });
+                }
               },
             ),
             _gap(),
             // Text field for vehicle type
             TextFormField(
               validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter the vehicle type';
-              }
-              return null;
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the vehicle type';
+                }
+                return null;
               },
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-              errorStyle: TextStyle(color: Colors.black), // Add this line
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red), // Add this line
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              labelStyle: TextStyle(color: Colors.white),
-              prefixIcon: Icon(
-                Icons.directions_car,
-                color: Colors.white,
-              ),
-              labelText: 'Vehicle Type',
+                hintText: 'Enter vehicle type',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(
+                  Icons.directions_car,
+                  color: Colors.white,
+                ),
+                labelText: 'Vehicle Type',
               ),
             ),
             _gap(),
             SizedBox(
               width: double.infinity,
-                child: ElevatedButton(
+              child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4)),
@@ -247,29 +251,29 @@ class _VehicleDetailFormState extends State<VehicleDetailForm> {
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                    'NEXT',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text(
+                        'NEXT',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
                     ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 24,
-                    color: Colors.black,
-                  ),
+                    Icon(
+                      Icons.arrow_forward,
+                      size: 24,
+                      color: Colors.black,
+                    ),
                   ],
                 ),
                 onPressed: () {
                   if (_formKey.currentState?.validate() ?? false) {
-                  /// do something
+                    /// do something
                   }
                 },
-                ),
+              ),
             ),
             _gap(),
             //add a divider

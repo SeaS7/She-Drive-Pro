@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
-import 'package:she_drive_pro/commons/widgets/tutor_detail_form.dart';
 import 'package:she_drive_pro/commons/widgets/vehicle_detail_form.dart';
 
 class VehicleDetailsScreen extends StatefulWidget {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:she_drive_pro/commons/widgets/sign_up_form.dart';
-import 'package:she_drive_pro/screens/sign_up.dart';
-import 'package:she_drive_pro/screens/uploadDocumentScreens/Id_image_upload.dart';
+import 'package:she_drive_pro/screens/auth_screens/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple,primary: Color(0xff9F2067),secondary: Colors.white),
         useMaterial3: true,
       ),
-      home: const SignUpScreen(),
+      home: const LoginScreen(),
     );
   }
 }
