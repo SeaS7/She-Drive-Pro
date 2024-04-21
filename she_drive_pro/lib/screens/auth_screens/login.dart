@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:she_drive_pro/commons/widgets/login_form.dart';
+import 'package:she_drive_pro/commons/forms/login_form.dart';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
-import 'package:she_drive_pro/commons/widgets/sign_up_form.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

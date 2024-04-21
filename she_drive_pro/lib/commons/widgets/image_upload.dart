@@ -5,6 +5,7 @@ import 'package:she_drive_pro/commons/widgets/logo.dart';
 import 'package:she_drive_pro/screens/auth_screens/tutor_detail.dart';
 import 'package:she_drive_pro/screens/upload_document_screens/license_image_upload.dart';
 import 'package:she_drive_pro/screens/upload_document_screens/selfie_upload.dart';
+import 'package:get/get.dart';
 
 class ImageUploader extends StatefulWidget {
   final List<XFile?> images;
@@ -175,7 +176,7 @@ class _ImageUploaderState extends State<ImageUploader> {
                               actions: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pop();
+                                    Get.back();
                                   },
                                   child: const Text('OK'),
                                 ),
@@ -195,7 +196,7 @@ class _ImageUploaderState extends State<ImageUploader> {
                               actions: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.of(context).pop();
+                                    Get.back();
                                   },
                                   child: const Text('OK'),
                                 ),
@@ -207,14 +208,12 @@ class _ImageUploaderState extends State<ImageUploader> {
                         // User has not selected the image, show an error message or prompt them to select an image
                         if (widget.currentScreen == 'IDimageUploadScreen') {
                           // Navigate to LicenseImageUploadScreen
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const LicenseImageUploadScreen()));
+                            Get.to(() => const LicenseImageUploadScreen());
                         } else if (widget.currentScreen ==
                             'LicenseImageUploadScreen') {
                           // Navigate to SelfieScreen
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SelfieScreen()));
+                             Get.to(() => const SelfieScreen());
+
                         }
                       }
                     },

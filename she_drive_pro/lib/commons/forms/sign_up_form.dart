@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:she_drive_pro/screens/auth_screens/sign_up.dart';
+import 'package:get/get.dart';
+import 'package:she_drive_pro/screens/auth_screens/tutor_detail.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class SignUpFormContent extends StatefulWidget {
+  const SignUpFormContent({Key? key}) : super(key: key);
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<SignUpFormContent> createState() => _SignUpFormContentState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _SignUpFormContentState extends State<SignUpFormContent> {
   bool _isPasswordVisible = false;
+  bool _isPasswordConfirmVisible = false;
   String password = '';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -28,7 +30,7 @@ class _LoginFormState extends State<LoginForm> {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Text(
-                "Login Here!",
+                "Register Now!",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   color: Colors.white,
@@ -69,7 +71,53 @@ class _LoginFormState extends State<LoginForm> {
                   color: Colors.white,
                 ),
                 labelText: 'Username',
-                hintText: 'Enter your username',
+                hintText: 'Enter your Username',
+              ),
+            ),
+            _gap(),
+            TextFormField(
+              validator: (value) {
+                // add email validation
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+
+                bool emailValid = RegExp(
+                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                    .hasMatch(value);
+                if (!emailValid) {
+                  return 'Please enter a valid email';
+                }
+
+                return null;
+              },
+              style: const TextStyle(color: Colors.white, decoration: null),
+              cursorColor: Colors.white, // Set cursor color to white
+              decoration: const InputDecoration(
+                iconColor: Colors.white,
+                labelText: 'Email',
+                hintText: 'Enter your email',
+                prefixIcon: Icon(
+                  Icons.email_outlined,
+                  color: Colors.white,
+                ),
+                errorStyle: TextStyle(color: Colors.black),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: TextStyle(color: Colors.white),
               ),
             ),
             _gap(),
@@ -117,7 +165,9 @@ class _LoginFormState extends State<LoginForm> {
                 labelStyle: const TextStyle(color: Colors.white),
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
+                    _isPasswordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
                     color: Colors.white,
                   ),
                   onPressed: () {
@@ -128,18 +178,58 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: Align(
-                alignment: Alignment.topRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Forgot Password?',
-                    style: TextStyle(color: Colors.white),
+            _gap(),
+            TextFormField(
+              obscureText: !_isPasswordConfirmVisible,
+              style: const TextStyle(color: Colors.white),
+              cursorColor: Colors.white, // Set cursor color to white
+              decoration: InputDecoration(
+                errorStyle: const TextStyle(color: Colors.black),
+                errorBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
+                focusedErrorBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: const TextStyle(color: Colors.white),
+                prefixIcon: const Icon(
+                  Icons.lock_outline_rounded,
+                  color: Colors.white,
+                ),
+                labelText: 'Confirm Password',
+                hintText: 'Enter your Password again',
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isPasswordConfirmVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: Colors.white,
                   ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordConfirmVisible = !_isPasswordConfirmVisible;
+                    });
+                  },
                 ),
               ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter a password';
+                }
+                if (value != password) {
+                  return 'Passwords do not match';
+                }
+                return null;
+              },
             ),
             _gap(),
             SizedBox(
@@ -153,7 +243,7 @@ class _LoginFormState extends State<LoginForm> {
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    'LOGIN',
+                    'SIGN UP',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -169,103 +259,12 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             _gap(),
-            const Center(
-              child: Text(
-                'OR',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            _gap(),
-            //make two buttons for login with google and facebook
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 4, 0, 4),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.facebook,
-                        color: Colors.white,
-                        size: 25,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, right: 0),
-                        child: Text(
-                          'Sign in with Facebook',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                onPressed: () {
-                  //login with facebook
-                },
-              ),
-            ),
-            _gap(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 4, 0, 4),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(
-                        image: AssetImage("assets/images/google_logo.png"),
-                        height: 30.0,
-                        width: 25,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 24, right: 8),
-                        child: Text(
-                          'Sign in with Google',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            //add a divider
             const Divider(
               color: Colors.white,
               thickness: 1,
             ),
             const Text(
-              'Don’t Have an Account?',
+              'Already have an account?',
               style: TextStyle(color: Colors.white),
             ),
             _gap(),
@@ -281,7 +280,7 @@ class _LoginFormState extends State<LoginForm> {
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    'SIGN UP',
+                    'LOGIN',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -290,9 +289,7 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const SignUpScreen(),
-                  ));
+                  Get.to(() => const TutorDetailsScreen());
                 },
               ),
             ),

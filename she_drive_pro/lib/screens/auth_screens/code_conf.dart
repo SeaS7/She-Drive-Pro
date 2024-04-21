@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:she_drive_pro/screens/auth_Screens/vehicle_detail.dart';
+import 'package:get/get.dart';
 
 class CodeConf extends StatefulWidget {
   const CodeConf({Key? key}) : super(key: key);
@@ -56,17 +57,17 @@ class _CodeConfState extends State<CodeConf> {
                 ),
                 const Text(
                   "Phone Verification",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 const Text(
                   "We need to register your phone without getting started!",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white
-                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -74,10 +75,9 @@ class _CodeConfState extends State<CodeConf> {
                 ),
                 Pinput(
                   length: 4,
-                  // defaultPinTheme: defaultPinTheme,
-                  // focusedPinTheme: focusedPinTheme,
-                  // submittedPinTheme: submittedPinTheme,
-
+                  defaultPinTheme: defaultPinTheme,
+                  focusedPinTheme: focusedPinTheme,
+                  submittedPinTheme: submittedPinTheme,
                   showCursor: true,
                   onCompleted: (pin) => print(pin),
                 ),
@@ -105,19 +105,13 @@ class _CodeConfState extends State<CodeConf> {
                       ),
                     ),
                     onPressed: () {
-                       Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const VehicleDetailsScreen(),
-                  ));
+                      Get.to(() => const VehicleDetailsScreen());
                     },
                   ),
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        'phone',
-                        (route) => false,
-                      );
+                      Get.offAllNamed('phone');
                     },
                     child: const Text(
                       "Edit Phone Number ?",

@@ -20,6 +20,7 @@ dependencies:
   image_picker: ^1.0.8
   flutter_native_splash: ^2.4.0
   pinput: ^4.0.0
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:
@@ -34,19 +35,18 @@ flutter:
   assets:
     - assets/images/app_logo.png
     - assets/images/camera.png
-    - assets/images/flutter_ui_dev_logo_dark.png
     - assets/images/google_logo.png
     - assets/images/varification_img.png
+    - assets/images/profile_img.png
 
 
 flutter_native_splash:
   color: "#9F2067"
-  image: "assets/images/flutter_ui_dev_logo_dark.png"
+  image: "assets/images/app_logo.png"
 
 
   android_12:
     android: true
     color: "#9F2067"
-    image: "assets/images/flutter_ui_dev_logo_dark.png"
-    branding: "assets/images/flutter_ui_dev_logo_dark.png"
+    image: "assets/images/app_logo.png"
     icon_background_color: "#ffffff"

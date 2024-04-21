@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:she_drive_pro/commons/widgets/logo.dart';
-import 'package:she_drive_pro/commons/widgets/tutor_detail_form.dart';
-import 'package:she_drive_pro/commons/widgets/vehicle_detail_form.dart';
+import 'package:she_drive_pro/commons/forms/tutor_detail_form.dart';
 
 class TutorDetailsScreen extends StatefulWidget {
   const TutorDetailsScreen({super.key});

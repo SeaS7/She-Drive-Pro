@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:she_drive_pro/screens/auth_screens/code_conf.dart';
+import 'package:she_drive_pro/screens/upload_document_screens/Id_image_upload.dart';
 
-class TutorDetailForm extends StatefulWidget {
-  const TutorDetailForm({Key? key}) : super(key: key);
+class VehicleDetailForm extends StatefulWidget {
+  const VehicleDetailForm({Key? key}) : super(key: key);
 
   @override
-  State<TutorDetailForm> createState() => _TutorDetailFormState();
+  State<VehicleDetailForm> createState() => _VehicleDetailFormState();
 }
 
-class _TutorDetailFormState extends State<TutorDetailForm> {
+class _VehicleDetailFormState extends State<VehicleDetailForm> {
   DateTime _selectedDate = DateTime.now();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -28,7 +29,7 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Text(
-                "Tutor Details",
+                "Vehicle Details",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   color: Colors.white,
@@ -37,73 +38,24 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                 ),
               ),
             ),
-            // Text field for full name
+            // Text field for vehicle make
             TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your full name';
+                  return 'Please enter the vehicle make';
                 }
                 return null;
               },
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-                hintText: 'Enter your full name',
-                hintStyle: TextStyle(color: Colors.white),
-                errorStyle: TextStyle(color: Colors.black),
+                hintText: 'Enter vehicle make',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                prefixIcon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                labelText: 'Full Name',
-                labelStyle: TextStyle(color: Colors.white),
-              ),
-            ),
-            _gap(),
-            // Text field for CNIC number
-            TextFormField(
-              keyboardType: TextInputType.number,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your CNIC number';
-                }
-                if (value.length != 13) {
-                  return 'CNIC number must be 13 digits';
-                }
-                return null;
-              },
-              cursorColor: Colors.white,
-              style: const TextStyle(color: Colors.white, decoration: null),
-              decoration: const InputDecoration(
-                hintText: 'Enter your CNIC number',
-                hintStyle: TextStyle(color: Colors.white),
-                iconColor: Colors.white,
-                labelText: 'CNIC',
-                prefixIcon: Icon(
-                  Icons.credit_card,
-                  color: Colors.white,
-                ),
-                errorStyle: TextStyle(color: Colors.black),
-                errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
@@ -115,28 +67,69 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                   borderSide: BorderSide(color: Colors.white),
                 ),
                 labelStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(
+                  Icons.directions_car,
+                  color: Colors.white,
+                ),
+                labelText: 'Vehicle Make',
               ),
             ),
             _gap(),
-            // Text field for driving licence number
+            // Text field for vehicle model and color
             TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your driving licence number';
+                  return 'Please enter the vehicle model and color';
                 }
                 return null;
               },
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-                hintText: 'Enter your driving licence number',
-                hintStyle: TextStyle(color: Colors.white),
-                errorStyle: TextStyle(color: Colors.black),
+                hintText: 'Enter vehicle model and color',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                labelStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(
+                  Icons.directions_car,
+                  color: Colors.white,
+                ),
+                labelText: 'Vehicle Model and Color',
+              ),
+            ),
+            _gap(),
+            // Text field for licence plate number
+            TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your Vehicle licence plate number';
+                }
+                return null;
+              },
+              cursorColor: Colors.white,
+              style: const TextStyle(color: Colors.white),
+              decoration: const InputDecoration(
+                hintText: 'Enter licence plate number',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
@@ -152,33 +145,32 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                   Icons.drive_eta,
                   color: Colors.white,
                 ),
-                labelText: 'Driving Licence Number',
+                labelText: 'Licence Plate Number',
               ),
             ),
             _gap(),
-            // Text field for date of birth
+            // Text field for year of registration
             TextFormField(
               controller: TextEditingController(
                 text: _selectedDate != null
-                    ? DateFormat('yyyy-MM-dd').format(_selectedDate!)
+                    ? DateFormat('yyyy').format(_selectedDate)
                     : '',
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your date of birth';
+                  return 'Please enter the year of registration';
                 }
                 return null;
               },
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-                hintText: 'Enter your date of birth',
-                hintStyle: TextStyle(color: Colors.white),
-                errorStyle: TextStyle(color: Colors.black),
+                hintText: 'Enter year of registration',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
@@ -194,7 +186,7 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                   Icons.calendar_today,
                   color: Colors.white,
                 ),
-                labelText: 'Date of Birth',
+                labelText: 'Year of Registration',
               ),
               onTap: () async {
                 FocusScope.of(context).requestFocus(FocusNode());
@@ -203,6 +195,7 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                   initialDate: DateTime.now(),
                   firstDate: DateTime(1900),
                   lastDate: DateTime.now(),
+                  initialDatePickerMode: DatePickerMode.year,
                 );
                 if (selectedDate != null) {
                   setState(() {
@@ -212,29 +205,24 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
               },
             ),
             _gap(),
-            // Text field for phone number
+            // Text field for vehicle type
             TextFormField(
-              keyboardType: TextInputType.phone,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your phone number';
-                }
-                if (value.length != 11) {
-                  return 'Phone number must be 11 digits';
+                  return 'Please enter the vehicle type';
                 }
                 return null;
               },
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-                hintText: 'Enter your phone number',
-                hintStyle: TextStyle(color: Colors.white),
-                errorStyle: TextStyle(color: Colors.black),
+                hintText: 'Enter vehicle type',
+                errorStyle: TextStyle(color: Colors.black), // Add this line
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.red), // Add this line
                 ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
@@ -247,10 +235,10 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                 ),
                 labelStyle: TextStyle(color: Colors.white),
                 prefixIcon: Icon(
-                  Icons.phone,
+                  Icons.directions_car,
                   color: Colors.white,
                 ),
-                labelText: 'Phone Number',
+                labelText: 'Vehicle Type',
               ),
             ),
             _gap(),
@@ -259,8 +247,7 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
+                    borderRadius: BorderRadius.circular(4)),
                 ),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -270,10 +257,9 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                       child: Text(
                         'NEXT',
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
                       ),
                     ),
                     Icon(
@@ -307,25 +293,21 @@ class _TutorDetailFormState extends State<TutorDetailForm> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
+                      borderRadius: BorderRadius.circular(4)),
                 ),
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
                     'LOGIN',
                     style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CodeConf(),
-                  ));
-                },
+                  Get.to(() => const IDimageUploadScreen());
+                 },
               ),
             )
           ],
