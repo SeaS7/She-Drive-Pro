@@ -39,6 +39,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
             ),
+            
             TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -298,6 +299,7 @@ class _LoginFormState extends State<LoginForm> {
                 },
               ),
             ),
+            
           ],
         ),
       ),

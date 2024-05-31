@@ -44,25 +44,22 @@ class Reviews extends StatelessWidget {
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
-                                          color: Colors.black),
+                                          color: Colors.white),
                                     ),
                                     TextSpan(
                                       text: " @${item.user.userName}",
                                       style:
-                                          Theme.of(context).textTheme.subtitle1,
+                                          Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.white),
                                     ),
                                   ]),
                                 )),
                                 Text('· 5m',
                                     style:
-                                        Theme.of(context).textTheme.subtitle1),
-                                const Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Icon(Icons.more_horiz),
-                                )
+                                        Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.white)),
+                                
                               ],
                             ),
-                            if (item.content != null) Text(item.content!),
+                            if (item.content != null) Text(item.content!,style: TextStyle(color: Colors.white),),
                             if (item.imageUrl != null)
                               Container(
                                 height: 200,

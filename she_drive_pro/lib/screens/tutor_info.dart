@@ -292,14 +292,11 @@ class TutorInfo extends StatelessWidget {
                         Text('· 5m',
                           style:
                             Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white)), // Modified text color to white
-                        const Padding(
-                          padding: EdgeInsets.only(left: 8.0),
-                          child: Icon(Icons.more_horiz, color: Colors.white), // Modified icon color to white
-                        )
+                        
                         ],
                       ),
                       if (_feedItems[0].content != null)
-                        Text(_feedItems[0].content!, style: TextStyle(color: Colors.white)), // Modified text color to white
+                        Text(_feedItems[0].content!, style: const TextStyle(color: Colors.white)), // Modified text color to white
                       if (_feedItems[0].imageUrl != null)
                         Container(
                         height: 200,
@@ -356,14 +353,11 @@ class TutorInfo extends StatelessWidget {
                         Text('· 5m',
                           style:
                             Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white)), // Modified text color to white
-                        const Padding(
-                          padding: EdgeInsets.only(left: 8.0),
-                          child: Icon(Icons.more_horiz, color: Colors.white), // Modified icon color to white
-                        )
+                        
                         ],
                       ),
                       if (_feedItems[1].content != null)
-                        Text(_feedItems[0].content!, style: TextStyle(color: Colors.white)),
+                        Text(_feedItems[0].content!, style: const TextStyle(color: Colors.white)),
                             if (_feedItems[1].imageUrl != null)
                               Container(
                                 height: 200,
@@ -382,14 +376,22 @@ class TutorInfo extends StatelessWidget {
                   ],
                   ),
                 ),
-                TextButton(
-                    onPressed: () {
-                      Get.to(() => const Reviews());
-                    },
-                    child: const Text(
-                      "Read All Reviews...",
-                      style: TextStyle(color: Colors.black),
-                    )),
+                 OutlinedButton(
+                  style:  ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    Get.to(() => const Reviews());
+                  },
+                  child: const Text(
+                    "Read All Reviews...",
+                    style: TextStyle(color: Color(0xff9F2067), fontSize: 11),
+                  )),
                     _gap()
               ],
             ),

@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "she_drive_pro",
+            "cwd": "she_drive_pro",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "she_drive_pro (profile mode)",
+            "cwd": "she_drive_pro",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "she_drive_pro (release mode)",
+            "cwd": "she_drive_pro",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
